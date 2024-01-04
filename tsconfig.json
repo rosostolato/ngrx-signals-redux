@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -12,7 +13,7 @@
     "esModuleInterop": true,
     "paths": {
       "ngrx-signals-redux": [
-        "./dist/ngrx-signals-redux"
+        "projects/ngrx-signals-redux/src/public-api"
       ]
     },
     "sourceMap": true,
