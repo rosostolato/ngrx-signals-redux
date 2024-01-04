@@ -1,22 +1,21 @@
 import { Component, inject } from '@angular/core';
 import { provideStore } from 'ngrx-signals-redux';
-import { CounterStore } from './state/counter/counter.store';
+import { PostsStore } from './state';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  providers: [provideStore(CounterStore)],
+  providers: [provideStore(PostsStore)],
   imports: [],
   template: `
-    <h1>Counter</h1>
-    <p>Current Count: {{ counter.value() }}</p>
-    <p>Is Even: {{ counter.isEven() }}</p>
-
-    <button (click)="counter.increment()">Increment</button>
-    <button (click)="counter.decrement()">Decrement</button>
-    <button (click)="counter.reset()">Reset Counter</button>
+    <h1>Posts</h1>
+    <ul>
+      @for (post of postsStore.posts(); track post.id) {
+      <li>{{ post.title }}</li>
+      }
+    </ul>
   `,
 })
 export class AppComponent {
-  readonly counter = inject(CounterStore);
+  readonly postsStore = inject(PostsStore);
 }
