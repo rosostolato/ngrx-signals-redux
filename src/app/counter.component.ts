@@ -1,11 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { provideStore } from 'ngrx-signals-redux';
-import { CounterStore } from './state';
+import { CounterStore, counterProvider } from './state/counter';
 
 @Component({
   selector: 'app-counter',
   standalone: true,
-  providers: [provideStore(CounterStore)],
+  providers: [counterProvider],
   imports: [],
   template: `
     <h1>Counter</h1>

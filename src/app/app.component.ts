@@ -1,11 +1,12 @@
-import { Component, inject } from '@angular/core';
-import { provideStore } from 'ngrx-signals-redux';
-import { PostsStore } from './state';
+import { Component, OnInit, inject } from '@angular/core';
+import { EffectsDirective, provideStore } from 'ngrx-signals-redux';
+import { PostsStore, postsProvider } from './state/posts';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  providers: [provideStore(PostsStore)],
+  providers: [postsProvider],
+  hostDirectives: [EffectsDirective],
   imports: [],
   template: `
     <h1>Posts</h1>
@@ -16,6 +17,10 @@ import { PostsStore } from './state';
     </ul>
   `,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   readonly postsStore = inject(PostsStore);
+
+  ngOnInit() {
+    this.postsStore.loadPosts();
+  }
 }
