@@ -2,14 +2,14 @@ import { signalStore } from '@ngrx/signals';
 import {
   createSelector,
   withDispatchers,
-  withReducers,
+  withReducer,
   withSelectors,
 } from 'ngrx-signals-redux';
 import { decrement, increment, reset } from './counter.actions';
 import { counterReducer } from './counter.reducer';
 
 export const CounterStore = signalStore(
-  withReducers(counterReducer),
+  withReducer(counterReducer),
   withSelectors(({ value }) => ({
     isEven: createSelector(value, (value) => value % 2 === 0),
   })),

@@ -8,5 +8,5 @@ export { createSelector } from './lib/create-selector';
 export { EffectsDirective } from './lib/effects.directive';
 export { provideStore } from './lib/provide-store';
 export { DispatchersDictionary, withDispatchers } from './lib/with-dispatchers';
-export { withReducers } from './lib/with-reducers';
+export { withReducer } from './lib/with-reducer';
 export { withSelectors } from './lib/with-selectors';

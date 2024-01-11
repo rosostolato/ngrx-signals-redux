@@ -2,7 +2,7 @@ import { signalStore } from '@ngrx/signals';
 import {
   createSelector,
   withDispatchers,
-  withReducers,
+  withReducer,
   withSelectors,
 } from 'ngrx-signals-redux';
 import { loadPosts } from './posts.actions';
@@ -12,7 +12,7 @@ const { selectAll, selectEntities, selectIds, selectTotal } =
   adapter.getSelectors();
 
 export const PostsStore = signalStore(
-  withReducers(postsReducer),
+  withReducer(postsReducer),
   withSelectors(() => ({
     posts: createSelector(selectAll),
     entities: createSelector(selectEntities),

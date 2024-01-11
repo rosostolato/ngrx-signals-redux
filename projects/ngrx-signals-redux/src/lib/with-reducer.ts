@@ -12,7 +12,7 @@ import { tap } from 'rxjs';
 
 import { Actions } from './actions';
 
-export function withReducers<State extends object>(
+export function withReducer<State extends object>(
   reducer: ActionReducer<State, Action>
 ) {
   return signalStoreFeature(
